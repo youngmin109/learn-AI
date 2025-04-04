@@ -32,6 +32,7 @@ print(bar.ravel()) # n 차원 -> 1 차원으로
 #--------------------------------------------------#
 
 from sklearn.linear_model import SGDRegressor
+from sklearn.metrics import mean_squared_error
 # sklearn 여러가지 모델을 만들어서 제공을 함 
 
 # 모델 생성 후 하이퍼파라미터 생성
@@ -43,3 +44,15 @@ model = SGDRegressor(# model 은 참조변수
     penalty=None, # 정규화 없음
     random_state=0 
 ) 
+
+# fit -> 학습
+model.fit(X,y)
+
+# 평가
+# Loss 값
+y_pred = model.predict(X)
+
+mse = mean_squared_error(y, y_pred)
+
+# 직접 짜봐야한다.
+# 내용을 노트로 정리했을시 얼마안되지만 복잡하다.
