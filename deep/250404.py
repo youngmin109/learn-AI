@@ -7,6 +7,7 @@ pos = np. zeros((2, 3, 2))
 print(foo)
 print(pos)
 
+# 배열의 차원 구조를 출력
 print(f"bar.shape: {foo.shape}")
 print(f"bar.shape: {pos.shape}")
 
