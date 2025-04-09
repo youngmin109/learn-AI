@@ -21,9 +21,9 @@ y = y.ravel() # 다차원 배열을 1차원으로 평탄화
 model = SGDRegressor(
     max_iter=100, # 학습 반복 횟수 
     learning_rate="adaptive", # 학습률 자동조절
-    eta0=0.001, # 학습률 값
+    eta0=0.001, # 학습률 값 # 0은 초기값을 말함, constant는 의미X
     penalty=None, # 정규화 제거
-    random_state=0 # 결과 재현을 위한 시드 고정정
+    random_state=0 # 결과 재현을 위한 시드 고정
 )
 model.fit(X, y)
 y_pred = model.predict(X) # 예측 값 출력 (일반화)
