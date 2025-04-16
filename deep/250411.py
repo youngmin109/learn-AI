@@ -1,11 +1,12 @@
+import numpy as np
 
 samples = []
 y = []  # 정답
 
-w = 0.2
+w = [0.2, 0.3]
 b = 0.1
 
-gradient_w = 0.0
+gradient_w = [0.0, 0.0]
 gradient_b = 0.0
 
 for dp in zip(samples, y):
