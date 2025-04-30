@@ -2,7 +2,7 @@ import numpy as np
 
 num_features = 4
 num_samples = 10000
-learning_rate = 0.01
+learning_rate = 0.001
 
 np.random.seed(1)
 np.set_printoptions(suppress=True, precision=1)
@@ -22,8 +22,8 @@ b = np.random.rand()
 gradient = np.zeros((num_features, 1)) # 기울기 초기화
 # 예측 값
 
-for _ in range(1000):
-    predict_y = X @ w 
+for _ in range(10000):
+    predict_y = X @ w + b
 
     # error
     error = predict_y - y
