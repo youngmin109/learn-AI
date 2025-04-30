@@ -37,4 +37,25 @@ model = SGDRegressor(
 model.fit(X_train_scaled, y_train) # 모델 학습
 
 # 5. 예측 및 평가
-y_pred = model.predict(X_test_scaled)
+y_pred = model.predict(X_test_scaled) # 테스트 데이터 예측
+
+# MSE, R^2 출력
+print(f"MSE: {mean_squared_error(y_test, y_pred):.4f}")
+print(f"R^2: {r2_score(y_test, y_pred):.4f}")
+
+# 6. 회귀 계수 출력 (각 특성이 결과에 얼마나 영향을 주는지 보여줌)
+print("\n회귀 계수 (weights):")
+for name, coef in zip(feature_names, model.coef_):
+    # 각 특성 이름과 회귀 계수를 정렬된 형태로 출력
+    print(f"{name:<20}: {coef:>20,.2f}")
+    
+# 절편 출력
+print(f"절편 (bias): {model.intercept_[0]:.2f}")
+
+# 7. 시각화 (예측값과 실제값 비교)
+plt.scatter(y_test, y_pred, alpha=0.3) # 예측 분포를 산점도로 표현
+plt.xlabel("Actual Median House Values") # 실제 집값
+plt.ylabel("Predicted Values") # 예측 집값
+plt.title("SGDRegressor: Actual vs Predicted") # 그래프 제목
+plt.grid(True) # 격자 추가
+plt.show() # 그래프 출력
