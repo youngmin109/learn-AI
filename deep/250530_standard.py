@@ -26,3 +26,12 @@ print(fit_values)
 # inverse_transform() 메서드는 표준화된 데이터를 원래의 스케일로 되돌린다.
 inverse_values = scaler.inverse_transform(fit_values)
 print(inverse_values)
+
+x = np.arange(10)
+
+# 평균과 표준편차를 구한다.
+print(x.mean(), x.std())
+
+mean = x.mean()
+values = [ item - mean for item in x]
+print(values, sum(values))
