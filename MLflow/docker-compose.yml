@@ -1,0 +1,22 @@
+# docker-compose.yml
+# 여러 개의 Docker 컨테이너를 동시에 정의하고 실행하기 위한 설정 파일
+version: '3.8'
+
+services:
+
+  mlflow_server: # MLflow 서버를 실행하는 컨테이너
+    build:
+      context: ./mlflow_server
+    ports:
+      - "5000:5000" # 컨테이너의 5000 포트를 호스트의 5000 포트에 매핑
+    volumes:
+      - ./mlruns:/mlflow/mlruns
+    command: mlflow server --backend-store-uri sqlite:///mlflow/mlflow.db --default-artifact-root /mlflow/mlruns --host 0.0.0.0 --port 5000
+
+  trainer: # 모델 학습을 담당하는 컨테이너
+    build:
+      context: ./trainer
+    volumes: # 학습 결과를 mlflow_server와 공유하기 위한 볼륨
+      - ./mlruns:/mlflow/mlruns # 외부 (PC) : 내부 ( 가상환경 )
+    depends_on: # mlflow_server가 시작된 후에 실행
+      - mlflow_server
