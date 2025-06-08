@@ -5,4 +5,4 @@ RUN pip install mlflow torch librosa scikit-learn matplotlib tqdm
 WORKDIR /app
 copy . .
 
-CMD ["bash"]
+CMD ["tail", "-f", "/dev/null"]
