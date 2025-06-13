@@ -26,7 +26,8 @@ learning_rate = 0.01
 
 # 가중치, 편향 초기화 (정규분포)
 # weight는 특성의 개수만큼, 편향은 1개
-weights = np.random.randn(num_features, 1) # randn(a,b) -> a행 b열의 정규분포 난수 생성
+weights = np.random.randn(num_features, 1) 
+# randn(a,b) -> a행 b열의 정규분포 난수 생성
 bias = np.random.randn()
 
 # 정답 레이블 reshape: (n_samples, 1)로 변환

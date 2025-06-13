@@ -1,3 +1,5 @@
+# SGDRegressor 예제
+
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.linear_model import SGDRegressor
