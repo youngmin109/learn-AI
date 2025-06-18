@@ -7,6 +7,7 @@ from sklearn.metrics import mean_squared_error # MSE
 
 
 # 난수 생성
+# 
 # supppress=True : 아주 작은 숫자를 0으로 보이게함
 # precision=1 : 소수점 1자리까지만 출력
 # X  : 0 ~ 10사이 난수 100개 (100행 1열)
@@ -27,6 +28,9 @@ model = SGDRegressor(
     penalty=None, # 정규화 제거
     random_state=0 # 결과 재현을 위한 시드 고정
 )
+
+
+
 model.fit(X, y)
 y_pred = model.predict(X) # 예측 값 출력 (일반화)
 mse = mean_squared_error(y, y_pred)
