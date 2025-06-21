@@ -5,12 +5,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # 1. 데이터셋 로딩 및 분할
-digits = load_digits()
+digits = load_digits() # digits이란 변수에 손글씨 숫자 데이터셋을 로드
 # 2차원 벡터로 변환하는 이유는 각 이미지를 일렬로 나열하여 특징을 추출하기 위함
 features = digits.data                    # (1797, 64): 8x8 이미지 벡터
 labels = digits.target                    # (1797,): 0~9 클래스 정수
 
-# print(features[0])
+# print(features[0]) 
 # print(labels[0]) # 0, 1, 2, ..., 9 , 0, 1, 2, ..., 9
 
 # 2. 학습/테스트 셋 분할
