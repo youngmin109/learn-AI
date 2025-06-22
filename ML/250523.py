@@ -54,7 +54,8 @@ for i in range(epochs):
 
     # Display the loss value of the current epoch
     if epochs % 100 == 0:
-        loss = -y_train*np.log(prediction) - (1 - y_train)*np.log(1-prediction + 1e-10)
+        loss = -y_train*np.log(prediction)\
+        - (1 - y_train)*np.log(1-prediction + 1e-10)
         print(loss.mean())
         
 # w -> 30개의 b값

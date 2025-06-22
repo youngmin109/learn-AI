@@ -58,7 +58,8 @@ for epoch in range(epochs):
     
     # 5-2 소프트맥스 함수 계산
     # 소프트맥스는 logit을 확률로 변환하는 함수
-    softmax = exp_logit / exp_logit_sum 
+    softmax = exp_logit / exp_logit_sum  
+    
     
     # 5-3. 원-핫 인코딩
     i_matrix = np.eye(num_classes) # (10, 10) 단위 행렬 생성
@@ -85,7 +86,7 @@ for epoch in range(epochs):
     
     # 5-5. 손실 함수 계산 (Cross Entropy Loss)
     # Cross Entropy Loss는 소프트맥스 확률과 원-핫 인코딩된 레이블 간의 차이를 측정
-    loss = -np.log(softmax + 1e-15) * one_hot
+    loss = -np.sum(np.log(softmax + 1e-15) * one_hot) / num_samples 
     
     if epoch % 1000 == 0: # 1000번마다 손실 함수 출력
-        print(f'Epoch {epoch}, Loss: {np.mean(loss)}')
+        print(f'Epoch {epoch}, Loss: {loss}')
